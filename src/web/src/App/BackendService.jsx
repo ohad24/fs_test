@@ -1,6 +1,6 @@
 import React from 'react';
 
-class App extends React.Component {
+class BackendService extends React.Component {
     constructor(props) {
         super(props);
 
@@ -30,10 +30,12 @@ class App extends React.Component {
         const { host } = this.state;
         return (
             <div>
-                host is: {host}
+                <b>React A-Sync GET requests using 'fetch'</b>
+                <br></br>
+                Host for BackendService: <code>{host}</code>
             </div>
         );
     }
 }
 
-export { App }; 
+export { BackendService }; 
