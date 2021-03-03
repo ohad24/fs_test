@@ -1,3 +1,3 @@
-backend: fastapi (python)
-frontend: react on nginx
+backend: fastapi (python)  
+frontend: react on nginx  
 deploy on gke

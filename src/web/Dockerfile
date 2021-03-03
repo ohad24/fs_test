@@ -8,7 +8,7 @@ COPY package-lock.json ./
 # RUN npm install react-scripts@3.4.1 -g --silent
 RUN npm i
 COPY . ./
-ENV REACT_APP_BACKEND_SERVER=35.190.18.199
+ENV REACT_APP_BACKEND_SERVER=ohad-kube.ddns.net
 RUN npm run build
 
 # production environment

@@ -14,7 +14,7 @@ class App extends React.Component {
         // var BACKEND_SERVER=process.env.REACT_APP_BACKEND_SERVER
         const { REACT_APP_BACKEND_SERVER } = process.env;
         console.log(REACT_APP_BACKEND_SERVER)
-        fetch('http://' + REACT_APP_BACKEND_SERVER + '/app', {
+        fetch(location.protocol + '//' + REACT_APP_BACKEND_SERVER + '/app', {
             'method': 'GET',
             'headers': {
                 'Content-Type': 'application/json',
