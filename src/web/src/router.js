@@ -32,7 +32,7 @@ export default function BasicExample() {
               <NavLink to="/home" className="nav-link">Home</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/about" className="nav-link">Link</NavLink>
+              <NavLink to="/Tech Stack" className="nav-link">Tech Stack</NavLink>
             </li>
           </ul>
           </div>
@@ -50,15 +50,14 @@ export default function BasicExample() {
           <Route exact path="/home">
             <Home />
           </Route>
-          <Route path="/about">
-            <About />
+          <Route path="/Tech Stack">
+            <Tech_Stack />
           </Route>
-          {/* <Route path="/dashboard">
-            <Dashboard />
-          </Route> */}
+
+
           <Route exact path="/">
-    <Redirect to="/home" />
-</Route>
+            <Redirect to="/home" />
+          </Route>
         </Switch>
       </div>
     </Router>
@@ -85,10 +84,11 @@ function About() {
   );
 }
 
-function Dashboard() {
+function Tech_Stack() {
   return (
     <div>
-      <h2>Dashboard</h2>
+        <h2>Tech Stack</h2>
+        <p>TBD</p>
     </div>
   );
 }
