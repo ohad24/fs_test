@@ -3,20 +3,15 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
   NavLink,
   Redirect
 } from "react-router-dom";
-import { App } from './App';
-
-// This site has 3 pages, all of which are rendered
-// dynamically in the browser (not server rendered).
-//
-// Although the page does not ever refresh, notice how
-// React Router keeps the URL up to date as you navigate
-// through the site. This preserves the browser history,
-// making sure things like the back button and bookmarks
-// work properly.
+// import { App } from './App';
+import { Home, 
+  TechStack,
+  BackendService1,
+  App as App1
+} from './pages'
 
 export default function BasicExample() {
   return (
@@ -34,24 +29,24 @@ export default function BasicExample() {
             <li className="nav-item">
               <NavLink to="/Tech Stack" className="nav-link">Tech Stack</NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink to="/BackendService1" className="nav-link">Backend Service 1</NavLink>
+            </li>
           </ul>
           </div>
         </nav>
-        {/* <hr /> */}
 
-        {/*
-          A <Switch> looks through all its children <Route>
-          elements and renders the first one whose path
-          matches the current URL. Use a <Switch> any time
-          you have multiple routes, but you want only one
-          of them to render at a time
-        */}
         <Switch>
           <Route exact path="/home">
             <Home />
           </Route>
+
           <Route path="/Tech Stack">
-            <Tech_Stack />
+            <TechStack />
+          </Route>
+
+          <Route path="/BackendService1">
+            <App1 />
           </Route>
 
 
@@ -64,31 +59,10 @@ export default function BasicExample() {
   );
 }
 
-// You can think of these components as "pages"
-// in your app.
-
-function Home() {
-  return (
-    <div>
-      <h2>Home</h2>
-      <App />
-    </div>
-  );
-}
-
 function About() {
   return (
     <div>
       <h2>About</h2>
-    </div>
-  );
-}
-
-function Tech_Stack() {
-  return (
-    <div>
-        <h2>Tech Stack</h2>
-        <p>TBD</p>
     </div>
   );
 }

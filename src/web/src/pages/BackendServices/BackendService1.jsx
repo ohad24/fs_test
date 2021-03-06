@@ -1,6 +1,6 @@
 import React from 'react';
 
-class BackendService extends React.Component {
+class BackendService1 extends React.Component {
     constructor(props) {
         super(props);
 
@@ -40,4 +40,4 @@ class BackendService extends React.Component {
     }
 }
 
-export { BackendService }; 
+export { BackendService1 }; 
