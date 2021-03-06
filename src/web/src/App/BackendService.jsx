@@ -32,7 +32,9 @@ class BackendService extends React.Component {
             <div>
                 <b>React A-Sync GET requests using 'fetch'</b>
                 <br></br>
-                Host for BackendService: <code>{host}</code>
+                The host value is pulled from backend API. Each GET goes to different pod.
+                <br></br>
+                Host from BackendService: <code>{host}</code>
             </div>
         );
     }

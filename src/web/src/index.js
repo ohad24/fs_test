@@ -1,9 +1,11 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-import { App } from './App';
+// import { App } from './App';
+import Router from './router';
 
 render(
-    <App />,
+    // <App />,
+    <Router />,
     document.getElementById('app')
 );

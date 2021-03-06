@@ -98,6 +98,8 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: "gce"
     kubernetes.io/ingress.global-static-ip-name: kube-main
+    # kubernetes.io/ingress.allow-http: "false"
+    networking.gke.io/v1beta1.FrontendConfig: lb-http2https
 spec:
   tls:
   - secretName: web-tls
@@ -112,3 +114,14 @@ spec:
         backend:
           serviceName: test-web-service
           servicePort: 80
+
+---
+
+apiVersion: networking.gke.io/v1beta1
+kind: FrontendConfig
+metadata:
+  name: lb-http2https
+spec:
+  redirectToHttps:
+    enabled: true
+    responseCodeName: MOVED_PERMANENTLY_DEFAULT
