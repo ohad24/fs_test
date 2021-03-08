@@ -12,7 +12,7 @@ gcloud builds submit --config cloudbuild.yaml .
 ```
 
 ### Todo:
-- [ ] Backend Auth with Firestore.
+- [x] Backend Auth with Firestore.
 - [ ] Set SSL kubernetes secret as declarative YAML (web-tls)
 - [ ] Frontend Auth
 - [ ] Authorization ?
@@ -24,7 +24,7 @@ gcloud builds submit --config cloudbuild.yaml .
 ## Development
 Run uvicorn from root directory `uvicorn src.app.app:app --reload`.
 
-## Secrests
+## Secrets
 ```bash
 kubectl create secret generic firebase-sa-token --from-file=./secrets/fb/firestore_cred.json
 kubectl create secret generic application-secret-key --from-file=./secrets/key/APPLICATION_SECRET_KEY
