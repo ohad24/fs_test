@@ -20,7 +20,8 @@ token_url = base_url + 'token'
 
 print(token_url)
 
-data = {'username': 'johndoe', 'password': 'secret'}
+# data = {'username': 'yosi', 'password': '2345'}
+data = {'username': 'ohad', 'password': '12341'}
 
 r = requests.post(token_url, data=data)
 
@@ -31,6 +32,9 @@ if r.status_code != 200:
 
 access_token = r.json().get('access_token')
 
+print(access_token)
+# quit()
+
 users_url = base_url + 'users/me/'
 
 headers = {'Authorization': f'Bearer {access_token}'}
@@ -38,4 +42,4 @@ headers = {'Authorization': f'Bearer {access_token}'}
 r = requests.get(users_url, headers=headers)
 
 print(r.status_code)
-print(r.json())
+print(r.text)

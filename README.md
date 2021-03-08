@@ -19,3 +19,13 @@ gcloud builds submit --config cloudbuild.yaml .
 - [ ] Private Twitter App
 - [ ] Twitter Bot ?
 - [ ] [Knesset](https://main.knesset.gov.il/Activity/Info/pages/databases.aspx) Project ?
+
+
+## Development
+Run uvicorn from root directory `uvicorn src.app.app:app --reload`.
+
+## Secrests
+```bash
+kubectl create secret generic firebase-sa-token --from-file=./secrets/fb/firestore_cred.json
+kubectl create secret generic application-secret-key --from-file=./secrets/key/APPLICATION_SECRET_KEY
+```

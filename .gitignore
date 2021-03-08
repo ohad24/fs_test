@@ -1,3 +1,7 @@
 venv
 node_modules
 __pycache__
+firestore_cred.json
+PASS_SECRET_KEY
+secrets
+settings.json

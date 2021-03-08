@@ -25,6 +25,20 @@ spec:
           requests:
             memory: 128Mi
             cpu: "0.1"
+        volumeMounts:
+        - name: firebase-sa-token
+          mountPath: "/app/secrets/fb/"
+          readOnly: true
+        - name: application-secret-key
+          mountPath: "/app/secrets/key/"
+          readOnly: true
+      volumes:
+      - name: firebase-sa-token
+        secret:
+          secretName: firebase-sa-token
+      - name: application-secret-key
+        secret:
+          secretName: application-secret-key
 
 ---
 
