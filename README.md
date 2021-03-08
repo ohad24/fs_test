@@ -6,6 +6,11 @@ deploy on gke
 
 Available at [ohad-kube.ddns.net](https://ohad-kube.ddns.net/)
 
+Build using gcloud
+```bash
+gcloud builds submit --config cloudbuild.yaml .
+```
+
 ### Todo:
 - [ ] Backend Auth with Firestore.
 - [ ] Set SSL kubernetes secret as declarative YAML (web-tls)
