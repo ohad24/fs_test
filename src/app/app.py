@@ -1,7 +1,7 @@
 from typing import Optional
 from fastapi.middleware.cors import CORSMiddleware
 
-from fastapi import FastAPI, Depends, HTTPException, status
+from fastapi import FastAPI, Depends, HTTPException, status, APIRouter
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 import socket
 from datetime import datetime, timedelta
@@ -54,6 +54,8 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 app = FastAPI()
 
+router_api = APIRouter()
+
 origins = [
     "http://localhost:3000",
     "http://localhost:8000",
@@ -68,9 +70,12 @@ app.add_middleware(
 )
 
 
-@app.get("/app")
-@app.get("/")
-def read_root():
+router_api = APIRouter()
+
+@router_api.get("/backendservice1")
+@router_api.get("/")
+@app.get("/") # ! MUST HAVE FOR GKE INGRESS HEALTHCHECK
+def index():
     return {"host": socket.gethostname()}
 
 
@@ -134,7 +139,7 @@ async def get_current_active_user(current_user: User = Depends(get_current_user)
     return current_user
 
 
-@app.post("/token", response_model=Token)
+@router_api.post("/token", response_model=Token)
 async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends()):
     user = authenticate_user(fake_users_db, form_data.username, form_data.password)
     if not user:
@@ -150,11 +155,14 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
     return {"access_token": access_token, "token_type": "bearer"}
 
 
-@app.get("/users/me/", response_model=User)
+@router_api.get("/users/me/", response_model=User)
 async def read_users_me(current_user: User = Depends(get_current_active_user)):
     return current_user
 
 
-@app.get("/users/me/items/")
+@router_api.get("/users/me/items/")
 async def read_own_items(current_user: User = Depends(get_current_active_user)):
     return [{"item_id": "Foo", "owner": current_user.username}]
+
+
+app.include_router(router_api, prefix="/api/v1")

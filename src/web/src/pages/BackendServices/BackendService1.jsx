@@ -14,7 +14,7 @@ class BackendService1 extends React.Component {
         // var BACKEND_SERVER=process.env.REACT_APP_BACKEND_SERVER
         const { REACT_APP_BACKEND_SERVER } = process.env;
         console.log(REACT_APP_BACKEND_SERVER)
-        fetch(location.protocol + '//' + REACT_APP_BACKEND_SERVER + '/app', {
+        fetch(location.protocol + '//' + REACT_APP_BACKEND_SERVER + '/api/v1/backendservice1', {
             'method': 'GET',
             'headers': {
                 'Content-Type': 'application/json',

@@ -5,7 +5,7 @@ metadata:
   labels:
     app: test-app
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: test-app
@@ -106,7 +106,11 @@ spec:
   rules:
   - http:
       paths:
-      - path: /app
+      - path: /api/*
+        backend:
+          serviceName: test-app-service
+          servicePort: 80
+      - path: /api/
         backend:
           serviceName: test-app-service
           servicePort: 80

@@ -4,7 +4,8 @@ import {
   Switch,
   Route,
   NavLink,
-  Redirect
+  Redirect,
+  useLocation
 } from "react-router-dom";
 // import { App } from './App';
 import { Home, 
@@ -49,6 +50,10 @@ export default function BasicExample() {
             <App1 />
           </Route>
 
+          <Route path="*">
+            {/* <NoMatch /> */}
+            <Redirect to="/home" />
+          </Route>
 
           <Route exact path="/">
             <Redirect to="/home" />
