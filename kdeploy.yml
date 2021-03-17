@@ -20,11 +20,11 @@ spec:
         imagePullPolicy: Always
         resources:
           limits:
-            memory: 256Mi
-            cpu: "0.3"
+            memory: "128Mi"
+            cpu: "0.2"
           requests:
-            memory: 128Mi
-            cpu: "0.1"
+            memory: "64Mi"
+            cpu: "10m"
         volumeMounts:
         - name: firebase-sa-token
           mountPath: "/app/secrets/fb/"
@@ -64,11 +64,11 @@ spec:
         imagePullPolicy: Always
         resources:
           limits:
-            memory: 256Mi
-            cpu: "0.3"
+            memory: "128Mi"
+            cpu: "0.2"
           requests:
-            memory: 128Mi
-            cpu: "0.1"
+            memory: "64Mi"
+            cpu: "10m"
 ---
 
 apiVersion: v1
