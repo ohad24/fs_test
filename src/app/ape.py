@@ -21,7 +21,7 @@ token_url = base_url + 'token'
 print(token_url)
 
 # data = {'username': 'yosi', 'password': '2345'}
-data = {'username': 'ohad', 'password': '12341'}
+data = {'username': 'ohad', 'password': '1234'}
 
 r = requests.post(token_url, data=data)
 
